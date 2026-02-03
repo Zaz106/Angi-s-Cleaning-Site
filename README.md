@@ -1,4 +1,4 @@
-# Joshua Huisman – Angie's Cleaning Services Website 🧼
+# Angie's Cleaning Services Website 🧼
 
 This is a professional cleaning services website built for **Angie's Cleaning Services**, featuring modern responsive design, interactive quote system, and seamless email integration. Built with **Next.js 13 App Router** and advanced UI components.
 
