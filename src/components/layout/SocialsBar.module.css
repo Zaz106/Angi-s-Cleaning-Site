@@ -1,0 +1,136 @@
+/* Socials Bar */
+.socialsBar {
+  background-color: var(--space-grey);
+  padding: 8px 0;
+  font-family: var(--font-body);
+  font-size: 14px;
+}
+
+/* Hide mobile duplicates on desktop */
+.mobileOnly {
+  display: none;
+}
+
+.socialsBarContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 20px;
+  gap: 2rem; /* Increased gap for better spacing */
+}
+
+.socialsBarItem {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-width: 0; /* Allow flex items to shrink */
+}
+
+.callUsLabel,
+.mailUsLabel {
+  color: var(--accent-green);
+  font-weight: 400;
+  padding-right: 0.2rem;
+}
+
+.callUsNumber {
+  color: var(--primary-white);
+  font-weight: 400;
+}
+
+.emailLink {
+  color: var(--primary-white);
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.emailLink:hover,
+.callUsNumber:hover {
+  opacity: 0.8;
+}
+
+.facebookLink,
+.whatsappLink {
+  display: flex;
+  align-items: center;
+  gap: 0.2rem;
+  color: var(--primary-white);
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.facebookLink:hover,
+.whatsappLink:hover {
+  opacity: 0.8;
+}
+
+.iconWrapper {
+  width: 24px;
+  height: 24px;
+  background-color: var(--space-grey);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .socialsBar {
+    overflow: hidden;
+    white-space: nowrap;
+  }
+
+  /* Show mobile duplicates */
+  .mobileOnly {
+    display: contents;
+  }
+
+  .socialsBarContainer {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    gap: 3rem; /* Consistent spacing between all items */
+    animation: carousel 30s linear infinite;
+    width: max-content;
+    padding: 0 20px;
+  }
+
+  .socialsBarItem {
+    flex-shrink: 0;
+    white-space: nowrap;
+    min-width: 200px; /* Ensure consistent spacing */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+}
+
+@keyframes carousel {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* Move by half since we duplicated items */
+  }
+}
+
+@media (max-width: 480px) {
+  .socialsBarContainer {
+    padding: 0 15px;
+    gap: 2.5rem; /* Slightly smaller gap on very small screens */
+  }
+  
+  .socialsBarItem {
+    min-width: 180px;
+  }
+  
+  .facebookLink,
+  .whatsappLink {
+    font-size: 12px;
+  }
+}

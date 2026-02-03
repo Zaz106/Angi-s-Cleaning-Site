@@ -1,0 +1,136 @@
+/* Custom Calendar Styles */
+.calendarContainer {
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 16px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  max-width: 350px;
+  margin: 0 auto;
+  font-family: var(--font-body);
+}
+
+.calendarHeader {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+  padding: 0 8px;
+}
+
+.navButton {
+  background: none;
+  border: none;
+  font-size: 24px;
+  color: var(--accent-green);
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.navButton:hover {
+  background-color: rgba(86, 142, 74, 0.1);
+}
+
+.monthYear {
+  font-family: var(--font-header);
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--secondary-black);
+}
+
+.weekdaysHeader {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+  margin-bottom: 8px;
+}
+
+.weekday {
+  text-align: center;
+  font-size: 12px;
+  font-weight: 600;
+  color: #666;
+  padding: 8px 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.calendarGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 4px;
+}
+
+.emptyDay {
+  height: 40px;
+}
+
+.calendarDay {
+  height: 40px;
+  width: 40px;
+  border: none;
+  background: none;
+  cursor: pointer;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-body);
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--secondary-black);
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.calendarDay:hover:not(.disabled) {
+  background-color: rgba(86, 142, 74, 0.1);
+  color: var(--accent-green);
+}
+
+.calendarDay.selected {
+  background-color: var(--accent-green) !important;
+  color: white !important;
+  font-weight: 600;
+}
+
+.calendarDay.today:not(.selected) {
+  background-color: rgba(86, 142, 74, 0.2);
+  color: var(--accent-green);
+  font-weight: 600;
+}
+
+.calendarDay.disabled {
+  color: #ccc;
+  cursor: not-allowed;
+}
+
+.calendarDay.disabled:hover {
+  background: none;
+  color: #ccc;
+}
+
+/* Responsive adjustments */
+@media (max-width: 480px) {
+  .calendarContainer {
+    max-width: 100%;
+    padding: 12px;
+  }
+  
+  .calendarDay {
+    height: 36px;
+    width: 36px;
+    font-size: 13px;
+  }
+  
+  .monthYear {
+    font-size: 16px;
+  }
+}

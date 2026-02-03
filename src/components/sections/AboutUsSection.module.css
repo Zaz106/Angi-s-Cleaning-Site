@@ -1,0 +1,374 @@
+/* About Us Wrapper */
+.aboutUsWrapper {
+  width: 100%;
+}
+
+/* Welcome Section */
+.welcomeSection {
+  padding: 80px 20px;
+  background-color: var(--primary-white);
+  text-align: center;
+  display: flex;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 4.2em;
+}
+
+.topLine,
+.bottomLine {
+  width: 20%;
+  height: 2px;
+  background-color: var(--secondary-black);
+}
+
+.topLine {
+  top: 20;
+}
+
+.bottomLine {
+  bottom: 0;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+.welcomeHeading {
+  font-family: var(--font-header);
+  font-size: 2.6rem;
+  font-weight: 600;
+  color: var(--secondary-black);
+  line-height: 1.2;
+  margin: 0;
+}
+
+/* Our Difference Section */
+.differenceSection {
+  padding: 80px 20px;
+  background-color: var(--primary-white);
+}
+
+.sectionTitle {
+  font-family: var(--font-header);
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--secondary-black);
+  margin-bottom: 60px;
+  letter-spacing: 1px;
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 40px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.featureCard {
+  background: var(--primary-white);
+  padding: 40px 30px;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.featureCard:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.12);
+}
+
+.iconContainer {
+  margin-bottom: 25px;
+}
+
+.featureIcon {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+
+.featureTitle {
+  font-family: var(--font-header);
+  font-size: 18px;
+  font-weight: 700;
+  color: var(--secondary-black);
+  margin-bottom: 20px;
+  line-height: 1.3;
+}
+
+.highlight {
+  color: black;
+}
+
+.featureDescription {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--space-grey);
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Meet The Team Section */
+.teamSection {
+  padding: 80px 20px;
+  background-color: var(--primary-white);
+}
+
+.teamContent {
+  display: flex;
+  align-items: center;
+  gap: 60px;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.profileContainer {
+  flex-shrink: 0;
+}
+
+.profileImageWrapper {
+  width: 260px;
+  height: 260px;
+  border-radius: 50%;
+  overflow: hidden;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.profileImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.textContent {
+  flex: 1;
+}
+
+.introduction {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--secondary-black);
+  line-height: 1.7;
+  margin-bottom: 20px;
+}
+
+.introduction strong {
+  color: var(--accent-green);
+  font-weight: 600;
+}
+
+.mission {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--space-grey);
+  line-height: 1.7;
+  margin: 0;
+}
+
+/* Information Section */
+.informationSection {
+  padding: 80px 20px;
+  background-color: #D8D3C2;
+  color: var(--space-grey);
+}
+
+.contentWrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.infoText {
+  font-family: var(--font-body);
+  font-size: 18px;
+  line-height: 1.8;
+  margin-bottom: 25px;
+  color: var(--space-grey);
+  font-weight: 400;
+}
+
+.infoText:last-child {
+  margin-bottom: 0;
+}
+
+.infoText strong {
+  font-weight: 600;
+  color: var(--space-grey);
+}
+
+/* Why We Do This Section */
+.whySection {
+  padding: 80px 20px;
+  background-color: var(--space-grey);
+  color: var(--primary-white);
+}
+
+.sectionTitle2 {
+  font-family: var(--font-header);
+  font-size: 36px;
+  font-weight: 600;
+  color: var(--primary-white);
+  margin-bottom: 60px;
+  letter-spacing: 1px;
+}
+
+.whyText {
+  font-family: var(--font-body);
+  font-size: 20px;
+  line-height: 1.8;
+  color: #ffffffb2;
+  margin: 0;
+  font-style: italic;
+}
+
+/* Mobile Responsiveness */
+@media (min-width: 769px) and (max-width: 1023px) {
+  .featuresGrid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+  }
+  
+  .featureCard:nth-child(3) {
+    grid-column: 1 / 3;
+    max-width: 350px;
+    margin: 0 auto;
+  }
+}
+
+@media (max-width: 768px) {
+  .welcomeSection {
+    padding: 60px 20px;
+  }
+  
+  .welcomeHeading {
+    font-size: 36px;
+  }
+
+  .differenceSection {
+    padding: 60px 20px;
+  }
+
+  .sectionTitle {
+    font-size: 28px;
+    margin-bottom: 40px;
+  }
+
+  .featuresGrid {
+    grid-template-columns: 1fr;
+    gap: 30px;
+  }
+
+  .featureCard {
+    padding: 30px 25px;
+  }
+
+  .teamSection {
+    padding: 60px 20px;
+  }
+
+  .teamContent {
+    flex-direction: column;
+    gap: 40px;
+    text-align: center;
+  }
+
+  .profileImageWrapper {
+    width: 150px;
+    height: 150px;
+  }
+
+  .introduction,
+  .mission {
+    font-size: 15px;
+  }
+
+  .informationSection {
+    padding: 60px 20px;
+  }
+
+  .infoText {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+
+  .whySection {
+    padding: 60px 20px;
+  }
+
+  .whyText {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 480px) {
+  .welcomeSection {
+    padding: 40px 15px;
+  }
+  
+  .welcomeHeading {
+    font-size: 28px;
+  }
+
+  .differenceSection {
+    padding: 40px 15px;
+  }
+
+  .sectionTitle {
+    font-size: 24px;
+  }
+
+  .featureCard {
+    padding: 25px 20px;
+  }
+
+  .featureTitle {
+    font-size: 16px;
+  }
+
+  .featureDescription {
+    font-size: 13px;
+  }
+
+  .teamSection {
+    padding: 40px 15px;
+  }
+
+  .teamContent {
+    gap: 30px;
+  }
+
+  .profileImageWrapper {
+    width: 150px;
+    height: 150px;
+  }
+
+  .introduction,
+  .mission {
+    font-size: 14px;
+  }
+
+  .informationSection {
+    padding: 40px 15px;
+  }
+
+  .infoText {
+    font-size: 15px;
+    line-height: 1.7;
+  }
+
+  .whySection {
+    padding: 40px 15px;
+  }
+
+  .whyText {
+    font-size: 16px;
+    line-height: 1.7;
+  }
+}

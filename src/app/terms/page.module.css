@@ -1,0 +1,514 @@
+/* Page Container */
+.page {
+  min-height: 100vh;
+  position: relative;
+}
+
+/* Desktop Social Bar - normal static positioning */
+.desktopSocialsBar {
+  position: block;
+}
+
+@media (min-width: 1025px) {
+  .header {
+    position: sticky;
+    top: 0;
+  }
+}
+
+/* Terms Page Wrapper */
+.termsPageWrapper {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--primary-white);
+}
+
+/* Header Section */
+.headerSection {
+  position: relative;
+  padding: 80px 20px;
+  background-image: url('/images/quotepg_bg.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 50vh;
+  margin-bottom: 2rem;
+}
+
+/* Apply parallax effect only on non-iOS devices */
+@supports not (-webkit-touch-callout: none) {
+  .headerSection {
+    background-attachment: fixed;
+  }
+}
+
+/* iOS-specific fix for parallax */
+@supports (-webkit-touch-callout: none) {
+  .headerSection {
+    background-attachment: scroll;
+  }
+}
+
+.headerOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.4);
+  z-index: 1;
+}
+
+.headerContent {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4.2em;
+}
+
+.topLine,
+.bottomLine {
+  width: 20%;
+  height: 2px;
+  background-color: var(--primary-white);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+}
+
+.mainHeading {
+  font-family: var(--font-header);
+  font-size: 2.6rem;
+  font-weight: 600;
+  color: var(--primary-white);
+  line-height: 1.2;
+  margin: 0;
+  text-align: center;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Content Section */
+.contentSection {
+  padding: 60px 20px 40px;
+  background-color: var(--primary-white);
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Section Styling */
+.section {
+  margin-bottom: 60px;
+}
+
+.sectionTitle {
+  font-family: var(--font-header);
+  font-size: 2rem;
+  font-weight: 600;
+  color: var(--secondary-black);
+  margin-bottom: 30px;
+  text-align: center;
+  position: relative;
+  padding-bottom: 15px;
+}
+
+.sectionTitle::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 60px;
+  height: 3px;
+  background-color: var(--accent-green);
+  border-radius: 2px;
+}
+
+.introText {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--secondary-black);
+  line-height: 1.6;
+  margin-bottom: 40px;
+  text-align: center;
+  font-style: italic;
+}
+
+/* Service Cards */
+.serviceCard {
+  background-color: #fafafa;
+  border: 2px solid #e0e0e0;
+  border-radius: 12px;
+  padding: 30px;
+  margin-bottom: 30px;
+  transition: all 0.3s ease;
+}
+
+.serviceCard:hover {
+  border-color: var(--accent-green);
+  box-shadow: 0 4px 15px rgba(86, 142, 74, 0.1);
+}
+
+.serviceTitle {
+  font-family: var(--font-header);
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--accent-green);
+  margin-bottom: 15px;
+  margin-top: 0;
+}
+
+.serviceDescription {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--secondary-black);
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.includesLabel {
+  font-family: var(--font-header);
+  font-size: 16px;
+  font-weight: 600;
+  color: var(--secondary-black);
+  margin-bottom: 15px;
+  margin-top: 0;
+}
+
+.serviceList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.serviceList li {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--secondary-black);
+  line-height: 1.6;
+  margin-bottom: 10px;
+  padding-left: 25px;
+  position: relative;
+}
+
+.serviceList li::before {
+  content: '✓';
+  position: absolute;
+  left: 0;
+  color: var(--accent-green);
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* Add-on Cards */
+.addOnCard {
+  background-color: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 25px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
+.addOnCard:hover {
+  border-color: var(--accent-green);
+  box-shadow: 0 2px 10px rgba(86, 142, 74, 0.1);
+}
+
+.addOnTitle {
+  font-family: var(--font-header);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--secondary-black);
+  margin-bottom: 10px;
+  margin-top: 0;
+}
+
+.addOnNote {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: #666;
+  line-height: 1.5;
+  margin: 0;
+  font-style: italic;
+}
+
+.addOnList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.addOnList li {
+  font-family: var(--font-body);
+  font-size: 14px;
+  color: var(--secondary-black);
+  line-height: 1.5;
+  margin-bottom: 8px;
+  padding-left: 20px;
+  position: relative;
+}
+
+.addOnList li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--accent-green);
+  font-weight: 600;
+}
+
+/* Terms Cards */
+.termsCard {
+  background-color: #f8fdf8;
+  border: 2px solid var(--accent-green);
+  border-radius: 12px;
+  padding: 30px;
+}
+
+.termItem {
+  margin-bottom: 25px;
+}
+
+.termItem:last-child {
+  margin-bottom: 0;
+}
+
+.termTitle {
+  font-family: var(--font-header);
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--secondary-black);
+  margin-bottom: 15px;
+  margin-top: 0;
+}
+
+.termText {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--secondary-black);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.termList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-top: 10px;
+}
+
+.termList li {
+  font-family: var(--font-body);
+  font-size: 15px;
+  color: var(--secondary-black);
+  line-height: 1.6;
+  margin-bottom: 10px;
+  padding-left: 25px;
+  position: relative;
+}
+
+.termList li::before {
+  content: '•';
+  position: absolute;
+  left: 0;
+  color: var(--accent-green);
+  font-weight: 600;
+  font-size: 18px;
+}
+
+/* Call to Action Section */
+.ctaSection {
+  margin-bottom: 0;
+}
+
+.ctaCard {
+  width: 100%;;
+  background-color: #D8D3C2;
+  border-radius: 0;
+  padding: 80px 40px;
+  text-align: center;
+  border: none;
+  box-shadow: none;
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaCard::before {
+  display: none;
+}
+
+.ctaTitle {
+  font-family: var(--font-header);
+  font-size: 2.2rem;
+  font-weight: 500;
+  color: var(--secondary-black);
+  margin-bottom: 25px;
+  margin-top: 0;
+  text-shadow: none;
+  position: relative;
+  z-index: 1;
+  line-height: 1.3;
+}
+
+.ctaText {
+  font-family: var(--font-body);
+  font-size: 16px;
+  color: var(--space-grey);
+  line-height: 1.6;
+  margin-bottom: 40px;
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+  position: relative;
+  z-index: 1;
+}
+
+.ctaButton {
+  display: inline-block;
+  background-color: var(--secondary-black);
+  color: white;
+  text-decoration: none;
+  padding: 15px 35px;
+  border-radius: 5px;
+  font-family: var(--font-header);
+  font-size: 14px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+  position: relative;
+  z-index: 1;
+  border: 2px solid transparent; /* Add transparent border to match hover state */
+}
+
+.ctaButton:hover {
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.25);
+  background-color: #D8D3C2;
+  border: 2px solid var(--space-grey);
+  color: var(--secondary-black);
+  transition: all 0.3s ease;
+}
+
+/* Mobile Responsiveness */
+@media (max-width: 768px) {
+  .termsPageWrapper {
+    padding-top: 80px;
+  }
+
+  .headerSection {
+    padding: 60px 20px;
+    min-height: 35vh;
+  }
+  
+  .headerContent {
+    gap: 3em;
+  }
+  
+  .mainHeading {
+    font-size: 2rem;
+  }
+  
+  .topLine,
+  .bottomLine {
+    width: 30%;
+  }
+  
+  .contentSection {
+    padding: 40px 15px 60px;
+  }
+  
+  .container {
+    padding: 0 10px;
+  }
+  
+  .section {
+    margin-bottom: 40px;
+  }
+  
+  .sectionTitle {
+    font-size: 1.6rem;
+    margin-bottom: 25px;
+  }
+  
+  .serviceCard,
+  .termsCard {
+    padding: 25px 20px;
+  }
+  
+  .addOnCard {
+    padding: 20px;
+  }
+  
+  .serviceTitle {
+    font-size: 1.2rem;
+  }
+  
+  .serviceDescription,
+  .termText {
+    font-size: 15px;
+  }
+  
+  .serviceList li,
+  .termList li {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .termsPageWrapper {
+    padding-top: 90px;
+  }
+
+  .headerSection {
+    padding: 40px 15px;
+    min-height: 30vh;
+  }
+  
+  .headerContent {
+    gap: 2.5em;
+  }
+  
+  .mainHeading {
+    font-size: 1.8rem;
+  }
+  
+  .sectionTitle {
+    font-size: 1.4rem;
+  }
+  
+  .serviceCard,
+  .termsCard {
+    padding: 20px 15px;
+  }
+  
+  .addOnCard {
+    padding: 18px 15px;
+  }
+  
+  .ctaCard {
+    padding: 60px 25px;
+  }
+  
+  .ctaTitle {
+    font-size: 1.8rem;
+  }
+  
+  .ctaText {
+    font-size: 15px;
+    margin-bottom: 35px;
+  }
+  
+  .ctaButton {
+    padding: 14px 28px;
+    font-size: 13px;
+    letter-spacing: 1.2px;
+  }
+}
