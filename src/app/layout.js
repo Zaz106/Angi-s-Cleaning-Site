@@ -1,5 +1,6 @@
 import { Montserrat_Alternates, Roboto } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/next"
 
 /**
  * Font Configuration
@@ -44,6 +45,7 @@ export default function RootLayout({ children }) {
       </head>
       <body className={`${montserratAlternates.variable} ${roboto.variable}`}>
         {children}
+        <Analytics />
       </body>
     </html>
   );

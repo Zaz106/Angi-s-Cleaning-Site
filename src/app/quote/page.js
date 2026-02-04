@@ -197,7 +197,8 @@ function QuotePageContent() {
     setIsSubmitting(true);
 
     try {
-      // Prepare email data
+      // Prepare necessary email data only
+      // Backend calculates pricing and add-ons using authoritative data
       const emailData = {
         name: formData.name,
         businessName: formData.businessName,
@@ -210,9 +211,7 @@ function QuotePageContent() {
         squareMeters: formData.squareMeters,
         addOns: formData.addOns,
         addOnQuantities: formData.addOnQuantities,
-        estimatedPrice: formData.estimatedPrice,
         additionalNotes: additionalNotes,
-        addOnPrices: addOnPrices,
       };
 
       // Send email

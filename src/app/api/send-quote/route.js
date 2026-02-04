@@ -95,7 +95,6 @@ export async function POST(request) {
       squareMeters,
       addOns, 
       addOnQuantities, 
-      estimatedPrice,
       additionalNotes
     } = body;
 
@@ -182,10 +181,6 @@ export async function POST(request) {
      * Gmail SMTP Configuration
      * Uses environment variables for secure authentication
      */
-    console.log('Configuring Gmail SMTP...');
-    console.log('Gmail User:', process.env.GMAIL_USER);
-    console.log('Gmail Password present:', !!process.env.GMAIL_APP_PASSWORD);
-    
     const transporter = nodemailer.createTransport({
       service: 'gmail',
       auth: {
@@ -194,19 +189,17 @@ export async function POST(request) {
       }
     });
 
-    // Test the connection
+    // Verify SMTP connection
     try {
       await transporter.verify();
-      console.log('SMTP connection verified successfully');
     } catch (verifyError) {
-      console.error('SMTP verification failed:', verifyError);
+      console.error('SMTP verification failed:', verifyError.message);
       return NextResponse.json(
         { 
-          error: 'SMTP configuration error', 
-          details: verifyError.message,
+          error: 'Email service currently unavailable', 
           success: false 
         },
-        { status: 500 }
+        { status: 503 }
       );
     }
 
@@ -236,35 +229,29 @@ export async function POST(request) {
 
     const { total: finalTotal, formattedAddOns } = calculatePricing();
 
-    // Get logo as base64 for email embedding with better error handling
+    // Get logo for email embedding
     const fs = require('fs');
     const path = require('path');
-    let logoBase64 = '';
     let logoAttachment = null;
+    let hasLogo = false;
     
     try {
       const logoPath = path.join(process.cwd(), 'public', 'images', 'logo.png');
-      console.log('Attempting to load logo from:', logoPath);
       
       if (fs.existsSync(logoPath)) {
         const logoBuffer = fs.readFileSync(logoPath);
-        logoBase64 = `data:image/png;base64,${logoBuffer.toString('base64')}`;
+        hasLogo = true;
         
-        // Also prepare as attachment for better email client support
+        // Prepare as attachment with Content-ID (CID) for inline display
         logoAttachment = {
           filename: 'logo.png',
           content: logoBuffer,
           contentType: 'image/png',
           cid: 'logo@angiescare'
         };
-        
-        console.log('Logo loaded successfully, size:', logoBuffer.length, 'bytes');
-      } else {
-        console.log('Logo file not found at path:', logoPath);
       }
     } catch (logoError) {
-      console.error('Error loading logo:', logoError);
-      // Continue without logo if there's an error
+      console.error('Error loading logo:', logoError.message);
     }
 
     // Format date
@@ -599,7 +586,7 @@ export async function POST(request) {
                 <table role="presentation" cellspacing="0" cellpadding="0" border="0" width="100%">
                   <tr>
                     <td class="logo-cell" style="text-align: center; padding: 0 20px;">
-                      ${logoBase64 ? `<img src="cid:logo@angiescare" alt="Angie's Cleaning Service" class="logo-img" style="max-height: 80px; width: auto; height: auto; display: block; margin: 0 auto; border: 0; -ms-interpolation-mode: bicubic;" />` : '<div style="height: 80px; text-align: center; color: #568E4A; font-weight: bold; line-height: 80px;">Angie\'s Cleaning Service</div>'}
+                      ${hasLogo ? `<img src="cid:logo@angiescare" alt="Angie's Cleaning Service" class="logo-img" style="max-height: 80px; width: auto; height: auto; display: block; margin: 0 auto; border: 0; -ms-interpolation-mode: bicubic;" />` : '<div style="height: 80px; text-align: center; color: #568E4A; font-weight: bold; line-height: 80px;">Angie\'s Cleaning Service</div>'}
                     </td>
                   </tr>
                 </table>
